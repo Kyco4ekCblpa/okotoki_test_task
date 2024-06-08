@@ -5,7 +5,7 @@ import "./starIcon.css";
 const StarIcon = ({ dataId, isDisabled = false, customSvgStyles = {}, onFavoriteChange }) => {
     const [isFavorite, setIsFavorite] = useState(false);
 
-    const classNames = `star-icon ${isFavorite || isDisabled ? 'filled' : null}`;
+    const classNames = `star-icon ${isFavorite ? 'filled' : ''} ${isDisabled ? 'disabled' : ''}`;
 
     useEffect(() => {
         let favorites = localStorage.getItem('favorites');  
