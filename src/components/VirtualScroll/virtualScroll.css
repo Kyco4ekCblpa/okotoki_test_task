@@ -18,10 +18,6 @@
     line-height: 16px;
 }
 
-.item-wrapper {
-    align-self: center;
-}
-
 .virtual-scroll-item:hover {
     background-color: var(--bg-color);
     box-shadow: inset 0 0 0 2px var(--shadow-color);
