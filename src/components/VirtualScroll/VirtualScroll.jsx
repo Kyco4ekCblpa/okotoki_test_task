@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./virtualScroll.css";
 import StarIcon from "../StarIcon/StarIcon";
 
-const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, onFavoriteChange }, ref) => {
+const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, renderedRows, onFavoriteChange }, ref) => {
     const [scrollPosition, setScrollPosition] = useState(0);
 
     const onScroll = (e) => {
@@ -12,7 +12,7 @@ const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, onFavo
     };
 
     const startIndex = Math.floor(scrollPosition / itemHeight);
-    const endIndex = Math.min(startIndex + visibleRows, coins.length);
+    const endIndex = Math.min(startIndex + renderedRows, coins.length);
 
     const items = coins.slice(startIndex, endIndex).map((item, i) => (
         <a
@@ -39,7 +39,7 @@ const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, onFavo
             ref={ref}
             className="virtual-scroll-container"
             onScroll={onScroll}
-            style={{ overflow: 'auto', height: 8 * itemHeight + 20 }}>
+            style={{ overflow: 'auto', height: visibleRows * itemHeight + 20 }}>
 
             <div style={{ height: spacerTopHeight }} />
             {items}

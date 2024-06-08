@@ -234,7 +234,8 @@ const SearchPanel = ({ buttonRef, showSearchPanel, setShowSearchPanel }) => {
                             ref={scrollDiv}
                             coins={filteredCoins.length ? filteredCoins : coins}
                             itemHeight={40}
-                            visibleRows={10}
+                            visibleRows={8}
+                            renderedRows={10}
                             onFavoriteChange={onFavoriteChange} />
                         : <div className="empty-list-msg">No matches or coins added to selected...</div>)
                     : <Spinner />
