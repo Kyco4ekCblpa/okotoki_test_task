@@ -1,0 +1,37 @@
+.virtual-scroll-container {
+    padding: 10px 0px;
+}
+
+.virtual-scroll-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px 15px 10px 35px;
+
+    transition: .2s all;
+
+    text-decoration: none;
+    color: inherit;
+}
+
+.virtual-scroll-item:hover {
+    background-color: var(--bg-color);
+    box-shadow: inset 0 0 0 2px var(--shadow-color);
+}
+
+.virtual-scroll-item:focus-within {
+    background-color: var(--bg-color);
+}
+
+.virtual-scroll-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.empty-list-msg {
+    padding: 10px 15px;
+
+    font-size: 14px;
+}

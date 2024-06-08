@@ -1,0 +1,35 @@
+.filters-panel {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.filters-btn {
+    position: relative;
+    padding: 10px 15px 10px 35px;
+
+    width: 50%;
+
+    border: none;
+    border-bottom: 1px solid var(--shadow-color);
+
+    background-color: var(--darkened-bg-color);
+    color: var(--white-color);
+
+    cursor: pointer;
+
+    font: inherit;
+    text-align-last: left;
+    text-transform: uppercase;
+}
+
+.filters-btn:first-child {
+    border-right: 1px solid var(--shadow-color);
+}
+
+.filters-btn:hover,
+.filters-btn:focus,
+.filters-btn.active {
+    background-color: var(--bg-color);
+    box-shadow: inset 0 0 0 2px var(--shadow-color);
+}

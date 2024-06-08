@@ -1,0 +1,38 @@
+.star-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+
+    transform: translateY(-50%);
+
+    height: 15px;
+    width: 15px;
+
+    cursor: pointer;
+}
+
+.star-icon path {
+    fill: none;
+    stroke: var(--white-color);
+}
+
+.star-icon:hover path,
+.star-icon.filled path {
+    fill: var(--white-color);
+    stroke: var(--white-color);
+}
+
+.star-icon:focus path {
+    stroke-width: 8px;
+}
+
+.star-icon:focus.filled path,
+.star-icon:hover.filled path {
+    stroke-width: 4px;
+    fill: var(--star-icon-darkened-fill);
+    stroke: var(--white-color);
+}
+
+.star-icon.disabled path {
+    fill: var(--white-color);
+}
