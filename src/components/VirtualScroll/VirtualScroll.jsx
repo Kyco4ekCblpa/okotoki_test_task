@@ -22,12 +22,14 @@ const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, render
             href="#"
             style={{ height: itemHeight }}>
 
-            <StarIcon
-                dataId={item}
-                onFavoriteChange={onFavoriteChange}
-            />
+            <div className="item-wrapper">
+                <StarIcon
+                    dataId={item}
+                    onFavoriteChange={onFavoriteChange}
+                />
 
-            <div className="item-wrapper">{item}</div>
+                {item}
+            </div>
         </a>
     ));
 
