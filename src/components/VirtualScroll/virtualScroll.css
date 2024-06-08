@@ -6,7 +6,7 @@
     position: relative;
 
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 
     padding: 10px 15px 10px 35px;
 
@@ -16,6 +16,10 @@
     color: inherit;
 
     line-height: 16px;
+}
+
+.item-wrapper {
+    align-self: center;
 }
 
 .virtual-scroll-item:hover {
