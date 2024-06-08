@@ -14,6 +14,8 @@
 
     text-decoration: none;
     color: inherit;
+
+    line-height: 16px;
 }
 
 .virtual-scroll-item:hover {
@@ -23,11 +25,6 @@
 
 .virtual-scroll-item:focus-within {
     background-color: var(--bg-color);
-}
-
-.virtual-scroll-link {
-    text-decoration: none;
-    color: inherit;
 }
 
 .empty-list-msg {

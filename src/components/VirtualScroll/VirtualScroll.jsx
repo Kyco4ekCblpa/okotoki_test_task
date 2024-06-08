@@ -27,7 +27,7 @@ const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, render
                 onFavoriteChange={onFavoriteChange}
             />
 
-            {item}
+            <div className="item-wrapper">{item}</div>
         </a>
     ));
 
