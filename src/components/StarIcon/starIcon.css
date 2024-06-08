@@ -28,7 +28,7 @@
 
 .star-icon:focus.filled path,
 .star-icon:hover.filled path {
-    stroke-width: 4px;
+    stroke-width: 3px;
     fill: var(--star-icon-darkened-fill);
     stroke: var(--white-color);
 }
