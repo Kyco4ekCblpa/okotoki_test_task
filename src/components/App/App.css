@@ -1,3 +1,30 @@
+/* CSS fix for apple */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  outline: none;
+}
+
+body {
+  background-color: #272727;
+
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+}
+
 :root {
   --bg-color: #3a3a3a;
   --darkened-bg-color: #131313;
@@ -6,19 +33,7 @@
   --star-icon-darkened-fill: #797979;
 }
 
-body {
-  background-color: #272727;
-}
-
-* {
-  padding: 0; 
-  margin: 0;
-  box-sizing: border-box;
-
-  outline: none;
-}
-
 *:focus:not(.star-icon, .search-reset-btn) {
-  background-color: var(--bg-color);   
+  background-color: var(--bg-color);
   box-shadow: inset 0 0 0 1px var(--white-color);
 }
