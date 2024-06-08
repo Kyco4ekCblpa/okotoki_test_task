@@ -16,6 +16,8 @@
     color: inherit;
 
     line-height: 16px;
+
+    cursor: pointer;
 }
 
 .virtual-scroll-item:hover {

@@ -15,11 +15,10 @@ const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, render
     const endIndex = Math.min(startIndex + renderedRows, coins.length);
 
     const items = coins.slice(startIndex, endIndex).map((item, i) => (
-        <a
+        <div
             className="virtual-scroll-item"
             tabIndex={0}
             key={startIndex + i}
-            href="#"
             style={{ height: itemHeight }}>
 
             <StarIcon
@@ -28,7 +27,7 @@ const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, render
             />
 
             {item}
-        </a>
+        </div>
     ));
 
     const spacerTopHeight = startIndex * itemHeight;
