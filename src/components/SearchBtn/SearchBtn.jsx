@@ -32,7 +32,7 @@ const SearchBtn = () => {
                     showSearchPanel={showSearchPanel}
                     setShowSearchPanel={setShowSearchPanel} />,
 
-                document.body)};
+                document.body)}
         </>
     )
 }
