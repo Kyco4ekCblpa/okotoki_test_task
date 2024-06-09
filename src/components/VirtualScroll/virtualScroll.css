@@ -18,6 +18,7 @@
     line-height: normal;
 
     cursor: pointer;
+    user-select: none;
 }
 
 .virtual-scroll-item:hover {
