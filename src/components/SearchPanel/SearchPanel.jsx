@@ -18,6 +18,7 @@ const SearchPanel = ({ buttonRef, showSearchPanel, setShowSearchPanel }) => {
     const [searchValue, setSearchValue] = useState('');
     const [filteredCoins, setFilteredCoins] = useState([]);
     const [activeFilter, setActiveFilter] = useState("all");
+    const [error, setError] = useState(null);
 
     const panelRef = useRef(null);
     const inputRef = useRef(null);
@@ -54,7 +55,9 @@ const SearchPanel = ({ buttonRef, showSearchPanel, setShowSearchPanel }) => {
     }, [activeFilter, coins, searchValue]);
 
 
-    // Хук забезпечує пошук, коли введено значення у рядок пошуку і відбувається зміна активного фільтру (випадок, коли активний фільтр "favorites" та відбувається повторний клік на нього обробляється окремо)
+    // Хук забезпечує пошук, коли введено значення у рядок пошуку і відбувається зміна активного фільтру
+    // (випадок, коли активний фільтр "favorites" та відбувається повторний клік на нього обробляється окремо)
+    
     useEffect(() => {
         if (searchValue) {
             const searchResults = fuse.search(searchValue).map(item => item.item);
@@ -88,7 +91,10 @@ const SearchPanel = ({ buttonRef, showSearchPanel, setShowSearchPanel }) => {
 
     const getAllCoins = () => {
         request("https://api-eu.okotoki.com/coins")
-            .then(onCoinsLoaded);
+            .then(onCoinsLoaded)
+            .catch(() => {
+                setError(true);
+            });
     }
 
     const onCoinsLoaded = (coins) => {
@@ -227,9 +233,17 @@ const SearchPanel = ({ buttonRef, showSearchPanel, setShowSearchPanel }) => {
 
             <FiltersPanel onFilterChange={onFilterChange} activeFilter={activeFilter} />
 
-            {
-                coinsLoaded ?
-                    (filteredCoins.length > 0
+
+            {/* 
+            Якщо помилка - показуэмо повідомлення. Якщо процес завандаження - спіннер. 
+            Якшо монети завантажені - рендеримо список.
+            */}
+
+            {error
+                ? <p className="search-panel-err">An error occurred, please try later...</p>
+
+                : coinsLoaded
+                    ? (filteredCoins.length > 0
                         ? <VirtualScroll
                             ref={scrollDiv}
                             coins={filteredCoins.length ? filteredCoins : coins}
@@ -238,9 +252,7 @@ const SearchPanel = ({ buttonRef, showSearchPanel, setShowSearchPanel }) => {
                             renderedRows={10}
                             onFavoriteChange={onFavoriteChange} />
                         : <div className="empty-list-msg">No matches or coins added to selected...</div>)
-                    : <Spinner />
-            }
-
+                    : <Spinner />}
         </div>
     )
 }
