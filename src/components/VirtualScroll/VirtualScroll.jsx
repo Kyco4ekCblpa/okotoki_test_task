@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./virtualScroll.css";
 import StarIcon from "../StarIcon/StarIcon";
 
-const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, renderedRows, onFavoriteChange }, ref) => {
+const VirtualScroll = React.forwardRef(({ coins, itemHeight, renderedRows, onFavoriteChange }, ref) => {
     const [scrollPosition, setScrollPosition] = useState(0);
 
     const onScroll = (e) => {
