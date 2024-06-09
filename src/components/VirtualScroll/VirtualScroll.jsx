@@ -34,16 +34,17 @@ const VirtualScroll = React.forwardRef(({ coins, itemHeight, visibleRows, render
     const spacerBottomHeight = (coins.length - endIndex) * itemHeight;
 
     return (
-        <ul
+        <div
             ref={ref}
             className="virtual-scroll-container"
             onScroll={onScroll}
-            style={{ overflow: 'auto', height: visibleRows * itemHeight + 20 }}>
+            style={{ overflow: 'auto'}}
+            >
 
             <div style={{ height: spacerTopHeight }} />
             {items}
             <div style={{ height: spacerBottomHeight }} />
-        </ul>
+        </div>
     );
 });
 

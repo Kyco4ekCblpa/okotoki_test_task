@@ -1,5 +1,7 @@
 .virtual-scroll-container {
     padding: 10px 0px;
+
+    height: 340px;
 }
 
 .virtual-scroll-item {

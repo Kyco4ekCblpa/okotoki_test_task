@@ -114,6 +114,10 @@
     transform: translate3d(-50%, -50%, 0) rotate(-45deg);
 }
 
+.search-panel-results {
+    min-height: 340px;
+}
+
 .search-panel-err {
     padding: 10px 15px;
 

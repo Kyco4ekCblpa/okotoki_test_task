@@ -57,7 +57,7 @@ const SearchPanel = ({ buttonRef, showSearchPanel, setShowSearchPanel }) => {
 
     // Хук забезпечує пошук, коли введено значення у рядок пошуку і відбувається зміна активного фільтру
     // (випадок, коли активний фільтр "favorites" та відбувається повторний клік на нього обробляється окремо)
-    
+
     useEffect(() => {
         if (searchValue) {
             const searchResults = fuse.search(searchValue).map(item => item.item);
@@ -239,20 +239,22 @@ const SearchPanel = ({ buttonRef, showSearchPanel, setShowSearchPanel }) => {
             Якшо монети завантажені - рендеримо список.
             */}
 
-            {error
-                ? <p className="search-panel-err">An error occurred, please try later...</p>
+            <div className="search-panel-results">
+                {error
+                    ? <p className="search-panel-err">An error occurred, please try later...</p>
 
-                : coinsLoaded
-                    ? (filteredCoins.length > 0
-                        ? <VirtualScroll
-                            ref={scrollDiv}
-                            coins={filteredCoins.length ? filteredCoins : coins}
-                            itemHeight={40}
-                            visibleRows={8}
-                            renderedRows={10}
-                            onFavoriteChange={onFavoriteChange} />
-                        : <div className="empty-list-msg">No matches or coins added to selected...</div>)
-                    : <Spinner />}
+                    : coinsLoaded
+                        ? (filteredCoins.length > 0
+                            ? <VirtualScroll
+                                ref={scrollDiv}
+                                coins={filteredCoins.length ? filteredCoins : coins}
+                                itemHeight={40}
+                                visibleRows={8}
+                                renderedRows={10}
+                                onFavoriteChange={onFavoriteChange} />
+                            : <div className="empty-list-msg">No matches or coins added to selected...</div>)
+                        : <Spinner />}
+            </div>
         </div>
     )
 }

@@ -33,6 +33,10 @@
     stroke: var(--white-color);
 }
 
+.star-icon.disabled {
+    pointer-events: none;
+}
+
 .star-icon.disabled path {
     fill: var(--white-color);
 }
